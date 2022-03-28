@@ -1,5 +1,5 @@
 
-from telegram.ext import Updater, CommandHandler, CallbackContext, ConversationHandler
+from telegram.ext import Updater, CommandHandler, CallbackContext, ConversationHandler, MessageHandler, Filters
 from functions import *
 
 
@@ -12,6 +12,11 @@ conv = ConversationHandler(
         CommandHandler('start', start)
     ],
     states={
+        state_main:[
+            MessageHandler(Filters.regex('^(' + bizningkurslar + ')$'), command_kurslar),
+            MessageHandler(Filters.regex('^(' + bizning_ustozlar + ')$'), command_ustozlar),
+            MessageHandler(Filters.regex('^(' + biz_haqimizda + ')$'), command_biz)
+        ]
 
     },
     fallbacks=[
