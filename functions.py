@@ -17,7 +17,7 @@ def start(update: Update, context: CallbackContext) -> None:
                               f"Zako o'quv markazimizning botiga xush kelibsiz", reply_markup=main_button())
     if checkuser(update.effective_user.id):
         add_user(update.effective_user.first_name, update.effective_user.last_name, f"{update.effective_user.id}")
-        print("bazaga saqlandi")
+        # print("bazaga saqlandi")
     if checkadmin(update.effective_user.id):
         update.message.reply_html("Admin botimizga xush kelibsiz", reply_markup=admin_main_button())
 
@@ -45,7 +45,7 @@ def command_courses(update: Update, context:CallbackContext):
     else:
         course_id = int(data)
         data = get_course_detail(course_id)
-        print(data)
+        # print(data)
         caption = f"""
      <b>{data[1]}</b>
 • Kurs davomiyligi {data[3]} oy
@@ -143,7 +143,7 @@ def command_teacher_kurs(update:Update, context:CallbackContext):
     else:
         kurs_id = int(data)
         data = get_teachers_by_kursid(kurs_id)
-        print(data)
+        # print(data)
         for i in data:
             caption = f"""
             <b>O'qituvchi</b>: {i[2]}

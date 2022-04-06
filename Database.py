@@ -96,7 +96,7 @@ def checkadmin(telegram_id):
         WHERE telegram_id ='{telegram_id}'
         """)
     data = cursor.fetchone()
-    print(data)
+    # print(data)
     if data[6] == 'admin':
         return True
     else:
